@@ -1,0 +1,48 @@
+def get_tunnel_statistic(serveraddress,session,systemip):
+
+    """
+    This function will return the details for all the tunnels for a particular endpoint
+    :param serveraddress: This is the IP Address and Port number of vManage (i.e., "192.168.0.1:8443")
+    :param session: session object that was returned from the prior initialize_connection function
+    :param systemip: systemip of a device that we want to receive detailed statistics on
+    :return: nothing
+    """
+    print ("Returning the tunnel statistics for device: "+systemip+"\n")
+
+    url = "https://"+serveraddress+"/dataservice/device/tunnel/statistics?deviceId="+systemip
+
+    response = session.request("GET", url,verify=False,timeout=10)
+    json_string=response.json()
+    #print (json_string)
+    #for item in json_string['data']:
+    #    print(item)
+
+    # If there is an error, with the query then let's print out the error code
+    if 'error' in json_string:
+        print("An Error Occured processing the data")
+        print(json_string['error']['details'])
+    else:
+        print('     {0:10}               {1:15} {2:10} {3:10}  {4:10}   {5:10}'.format("Tunnel",
+                                                                           "Color",
+                                                                           "RX Pkts",
+                                                                           "TX Pkts", "RX Bytes",
+                                                                           "TX Bytes"))
+
+        print('     {0:10}               {1:15} {2:10} {3:10}  {4:10}   {5:10}'.format("------",
+                                                                           "-----",
+                                                                           "-------",
+                                                                           "-------", "--------",
+                                                                           "--------"))
+
+        # Reset the rx and tx total statistics
+        rx=0
+        tx=0
+
+        # Process through each Tunnel on the device
+        for stats in json_string['data']:
+            rx=rx+int(stats['rx_octets'])
+            tx=tx+int(stats['tx_octets'])
+            print('{0:10}->{1:12}   {2:15} {3:10d} {4:10d}   {5:10d}   {6:10d}'.format(stats['vdevice-host-name'],inventory[stats['system-ip']],stats['local-color'],int(stats['rx_pkts']),int(stats['tx_pkts']),int(stats['rx_octets'])*8,int(stats['tx_octets'])*8))
+
+        print('                                                                    ---------    ---------')
+        print('                                               Totals:             {0:10d}   {1:10d}'.format(rx*8,tx*8))

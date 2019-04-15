@@ -1,0 +1,31 @@
+conf
+no vpn 1
+vpn 0
+no dns 1.4.28.89
+no interface ge0/1
+no interface ge0/2
+no ip route 0.0.0.0/0 1.1.7.22
+no ip route 0.0.0.0/0 1.2.9.23
+exit
+security
+no ipsec authentication
+exit
+omp
+no advertise ospf
+no advertise connected
+no advertise static
+shutdown
+exit
+system
+host-name vedge
+no system-ip
+no site-id
+no controller-group-list
+no organization-name
+no upgrade-confirm
+no vbond
+exit
+commit
+exit
+reboot
+yes

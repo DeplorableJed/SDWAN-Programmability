@@ -1,0 +1,27 @@
+system
+ host-name               ZTP-Server
+ upgrade-confirm         5
+ vbond 1.4.28.169 local ztp-server
+!
+vpn 0
+ dns 1.4.28.89
+ interface ge0/0
+  ip address 1.4.28.169/24
+  no shutdown
+ !
+ ip route 0.0.0.0/0 1.4.28.23
+
+
+
+
+
+
+ZTP ENTRIES----
+
+request device add chassis-number f04d9473-3eb6-48b0-adf7-cf891d4eb4c6 serial-number 77da2889c960a4c25818285574e78107 validity valid vbond vbond.demo.local org-name NterOne1
+
+request device add chassis-number b575b91f-88ca-4aa1-9d97-8e905b1bebca serial-number e63716563721124f2c6dc9a9fc22be5c validity valid vbond vbond.demo.local org-name NterOne1
+
+request device add chassis-number fd8da2ea-0c45-4412-ab7a-84cf70c9c7f9 serial-number 3549b1926e9a7da7b4d5a64135d0d543 validity valid vbond vbond.demo.local org-name NterOne1
+
+request device add chassis-number 50e3cdd0-cde4-4e0f-800d-bab4c288ff15 serial-number 1eb79482daabe4d8e87bae74c081e545 validity valid vbond vbond.demo.local org-name NterOne1

@@ -1,0 +1,46 @@
+policy
+ data-policy _VPN1_FTP_Off_Peak
+  vpn-list VPN1
+    sequence 1
+     match
+      app-list FTP_traffic
+      source-ip 0.0.0.0/0
+     !
+     action accept
+      set
+       local-tloc-list 
+        color gold
+        encap ipsec
+      !
+     !
+    !
+  default-action accept
+ !
+ lists
+  app-list FTP_traffic
+   app ftp 
+   app ftp_data 
+   app ftp-data 
+  !
+  site-list SiteBranch
+   site-id 10 
+   site-id 20 
+   site-id 30 
+  !
+  site-list SiteDC
+   site-id 100 
+   site-id 200 
+  !
+  vpn-list VPN1
+   vpn 1 
+  !
+ !
+!
+apply-policy
+ site-list SiteBranch
+  data-policy _VPN1_FTP_Off_Peak all
+ !
+ site-list SiteDC
+  data-policy _VPN1_FTP_Off_Peak all
+ !
+!

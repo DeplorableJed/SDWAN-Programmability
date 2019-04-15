@@ -1,0 +1,2118 @@
+{
+	"info": {
+		"_postman_id": "83413038-315b-4caf-9dbe-cc3a0e834191",
+		"name": "Cisco-SD-WAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Authentication",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "j_username",
+									"value": "{{j_username}}",
+									"type": "text"
+								},
+								{
+									"key": "j_password",
+									"value": "{{j_password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/j_security_check",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"j_security_check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bulk State API",
+			"item": [
+				{
+					"name": "Show Reboot History",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/SystemStatus?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"SystemStatus"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show OMP Peers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/OMPPeer?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"OMPPeer"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Interface Detail",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/Interface?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"Interface"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Interface VPN 0",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/ControlWanInterface?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"ControlWanInterface"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show BFD Sessions",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/BFDSessions?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"BFDSessions"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Control Local-Properties",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/ControlLocalProperty",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"ControlLocalProperty"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Hardware Environment",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/HardwareEnvironment?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"HardwareEnvironment"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Hardware Inventory",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/state/HardwareInventory?count=100",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"state",
+								"HardwareInventory"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bulk Statistic API",
+			"item": [
+				{
+					"name": "Alarm Statistics",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/alarm?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"alarm"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Application Aware Routing Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/alarm?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"alarm"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit Logs Statistics",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/auditlog?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"auditlog"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Configuration",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/deviceconfiguration?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"deviceconfiguration"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Events",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/deviceevent?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"deviceevent"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device System Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/devicesystemstatusstatistics?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"devicesystemstatusstatistics"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DPI",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/dpistatistics?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"dpistatistics"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Flow Logs",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/flowlogstatistics?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"flowlogstatistics"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Interfaces Statistics",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/data/device/statistics/interfacestatistics?startDate=2019-02-01T00:00:00&endDate=2020--02-29T00:00:00",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"data",
+								"device",
+								"statistics",
+								"interfacestatistics"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-02-01T00:00:00"
+								},
+								{
+									"key": "endDate",
+									"value": "2020--02-29T00:00:00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device Inventory API",
+			"item": [
+				{
+					"name": "Devices - All",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device - Specific",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device?host-name=branch-vE2",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device"
+							],
+							"query": [
+								{
+									"key": "host-name",
+									"value": "branch-vE2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Controllers - All",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/system/device/controllers",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"system",
+								"device",
+								"controllers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "vEdges - All",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/system/device/vedges",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"system",
+								"device",
+								"vedges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Devices Status - All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/monitor",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"monitor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Device Counters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/counters",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"counters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Policies",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/policy/vsmart",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"policy",
+								"vsmart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Alarms, Audit Log and Event API",
+			"item": [
+				{
+					"name": "Alarms 10,000 from last 100 hours",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"condition\": \"AND\",\r\n    \"rules\": [\r\n      {\r\n        \"value\": [\r\n          \"100\"\r\n        ],\r\n        \"field\": \"entry_time\",\r\n        \"type\": \"date\",\r\n        \"operator\": \"last_n_hours\"\r\n      }\r\n    ]\r\n  },\r\n  \"size\": 10000\r\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/auditlog",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"auditlog"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Audit Log 10,000 from last 100 hours",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"condition\": \"AND\",\r\n    \"rules\": [\r\n      {\r\n        \"value\": [\r\n          \"100\"\r\n        ],\r\n        \"field\": \"entry_time\",\r\n        \"type\": \"date\",\r\n        \"operator\": \"last_n_hours\"\r\n      }\r\n    ]\r\n  },\r\n  \"size\": 10000\r\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/alarms",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"alarms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event 10,000 from last 100 hours Copy",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"condition\": \"AND\",\r\n    \"rules\": [\r\n      {\r\n        \"value\": [\r\n          \"100\"\r\n        ],\r\n        \"field\": \"entry_time\",\r\n        \"type\": \"date\",\r\n        \"operator\": \"last_n_hours\"\r\n      }\r\n    ]\r\n  },\r\n  \"size\": 10000\r\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/event",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"event"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device Configuration API",
+			"item": [
+				{
+					"name": "Detach",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"deviceType\":\"vedge\",\r\n        \"devices\":[  \r\n            {\r\n                \"deviceId\":\"655a459e-29d3-4c41-aefd-3d149486e8d8\",\r\n                \"deviceIP\":\"172.1.20.2\"\r\n            }\r\n        ]\r\n    }"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/config/device/mode/cli",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"config",
+								"device",
+								"mode",
+								"cli"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "System API",
+			"item": [
+				{
+					"name": "Banner",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/settings/configuration/banner",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"settings",
+								"configuration",
+								"banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reboot",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n  \"action\":\"reboot\",\r\n  \"deviceType\":\"vedge\",\r\n  \"devices\":[      \r\n    {  \r\n      \"deviceIP\":\"172.1.20.2\", \r\n      \"deviceId\":\"06f4b448-5879-43bb-bc28-3b6828fb5f2a\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/action/status/reboot-98b4180f-e462-45f4-a797-36ed6f2610b0",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"action",
+								"status",
+								"reboot-98b4180f-e462-45f4-a797-36ed6f2610b0"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reboot",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{vmanage}}:{{port}}/dataservice/device/action/reboot",
+									"protocol": "https",
+									"host": [
+										"{{vmanage}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"dataservice",
+										"device",
+										"action",
+										"reboot"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "JSP/2.3"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Feb 2019 20:18:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1313"
+								}
+							],
+							"cookie": [],
+							"body": "<html>\n    <head>\n        <title>Cisco vManage</title>\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/login.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/fonts/font-awesome-4.2.0/css/font-awesome.min.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/bootstrap.min.css\">\n        <script type=\"text/javascript\" src=\"/javascript/jquery.js\"></script>\n        <link rel=\"icon\" type=\"image/ico\" href=\"/images/favicon.ico\"/>\n        <script>\n      var count = 1, max = 30;\n      function init(){\n        var rebootBlock = document.getElementById('reboot_message');\n        rebootBlock.style.display = \"none\";\n        var loginBlock = document.getElementById('login_message');\n        loginBlock.style.display = \"block\";\n        checkServerStatus();\n      }\n      function checkServerStatus() {\n        if(count <= max){\n          var xhr = new XMLHttpRequest();\n          xhr.open(\"GET\", \"/dataservice/client/server/ready\", true);\n          xhr.onload = function (e) {\n            if (xhr.readyState === 4) {\n              if (xhr.status === 200) {\n                var rebootBlock = document.getElementById('reboot_message');\n                rebootBlock.style.display = \"none\";\n                var loginBlock = document.getElementById('login_message');\n                loginBlock.style.display = \"block\";\n              } else {\n                var rebootBlock = document.getElementById('reboot_message');\n                rebootBlock.style.display = \"block\";\n                var loginBlock = document.getElementById('login_message');\n                loginBlock.style.display = \"none\";\n                count++;\n                setTimeout(checkServerStatus, 10000);\n              }\n            }\n          };\n          xhr.onerror = function (e) {\n            count++;\n            setTimeout(checkServerStatus, 10000);\n          };\n          xhr.send(null);\n        }else{\n          var rebootBlock = document.getElementById('reboot_message');\n          rebootBlock.style.display = \"none\";\n          var loginBlock = document.getElementById('login_message');\n          loginBlock.style.display = \"block\";\n        }\n      }\n      function validateForm() {\n        if(loginForm.j_username.value.length==0 || loginForm.j_username.value==\"\")\n        {\n          showErrorMessage(\"Invalid Username.\");\n          document.getElementById(\"j_username\").className=\"login-input-error\";\n          return false;\n        } else if(loginForm.j_password.value.length == 0 || loginForm.j_password.value==\"\")\n        {\n          showErrorMessage(\"Invalid Password.\")\n          document.getElementById(\"j_password\").className=\"login-input-error\";\n          return false;\n        } else {\n          hideErrorMessage();\n          return true;\n        }\n      }\n\n      function showErrorMessage(msg) {\n        document.getElementById(\"errorMessageBox\").innerHTML=msg;\n      };\n\n      function hideErrorMessage() {\n        document.getElementById(\"errorMessageBox\").innerHTML=' ';\n        document.getElementById(\"j_username\").className=\"login-input-value\";\n        document.getElementById(\"j_password\").className=\"login-input-value\";\n      }\n    \n        </script>\n    </head>\n    <body onload=\"init()\">\n        <div name=\"Login\" class=\"loginContainer\">\n            <div class=\"loginInnerContainer\">\n                <div class=\"productCategory\">Cisco SD-WAN</div>\n                <form class=\"loginFormStyle\" name=\"loginForm\" id=\"loginForm\" method=\"POST\" action=\"j_security_check\" onsubmit=\"return validateForm()\" autocomplete=\"off\">\n                    <div name=\"logoMainContainer\"  class=\"logoMainContainer\"></div>\n                    <div class=\"brand-logo-text\">\n                        <span>Cisco vManage</span>\n                    </div>\n                    <p id=\"errorMessageBox\" name=\"errorMessageBox\" class='errorMessageBox '></p>\n                    <div id=\"reboot_message\" class=\"reboot-message-block\">\n                        <div class=\"reboot-message\">Server is initializing. Please wait.</div>\n                        <i class=\"fa fa-circle-o-notch fa-spin fa-3x fa-fw\"></i>\n                    </div>\n                    <div id=\"login_message\" style=\"display: none;\">\n                        <div class='onyx-groupbox login-wrap' name=\"inputFields\">\n                            <div class=\"onyx-input-decorator login-input\">\n                                <input type=\"text\" class=\"login-input-value\"  size=\"18\"\n                     id=\"j_username\" name=\"j_username\" maxlength=\"32\" placeholder=\"Username\" value=\"\" onfocus=\"hideErrorMessage()\" autofocus />\n                            </div>\n                            <div class=\"onyx-input-decorator login-input\">\n                                <input type=\"password\" class=\"login-input-value\"  size=\"18\"\n                     id=\"j_password\" name=\"j_password\" placeholder=\"Password\"  value=\"\" onfocus=\"hideErrorMessage()\" />\n                            </div>\n                        </div>\n                        <div class='onyx-sample-tools login-wrap'>\n                            <input type=\"submit\"  name=\"submit\"  value=\"Log In\" class=\"login-button\"  />\n                        </div>\n                    </div>\n                </form>\n            </div>\n        </div>\n    </body>\n</html>"
+						}
+					]
+				},
+				{
+					"name": "Reboot Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/action/status/reboot-98b4180f-e462-45f4-a797-36ed6f2610b0",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"action",
+								"status",
+								"reboot-98b4180f-e462-45f4-a797-36ed6f2610b0"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Reboot",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{vmanage}}:{{port}}/dataservice/device/action/reboot",
+									"protocol": "https",
+									"host": [
+										"{{vmanage}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"dataservice",
+										"device",
+										"action",
+										"reboot"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "JSP/2.3"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 21 Feb 2019 20:18:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html;charset=ISO-8859-1"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1313"
+								}
+							],
+							"cookie": [],
+							"body": "<html>\n    <head>\n        <title>Cisco vManage</title>\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/login.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/fonts/font-awesome-4.2.0/css/font-awesome.min.css\">\n        <link rel=\"stylesheet\" type=\"text/css\" href=\"/bootstrap.min.css\">\n        <script type=\"text/javascript\" src=\"/javascript/jquery.js\"></script>\n        <link rel=\"icon\" type=\"image/ico\" href=\"/images/favicon.ico\"/>\n        <script>\n      var count = 1, max = 30;\n      function init(){\n        var rebootBlock = document.getElementById('reboot_message');\n        rebootBlock.style.display = \"none\";\n        var loginBlock = document.getElementById('login_message');\n        loginBlock.style.display = \"block\";\n        checkServerStatus();\n      }\n      function checkServerStatus() {\n        if(count <= max){\n          var xhr = new XMLHttpRequest();\n          xhr.open(\"GET\", \"/dataservice/client/server/ready\", true);\n          xhr.onload = function (e) {\n            if (xhr.readyState === 4) {\n              if (xhr.status === 200) {\n                var rebootBlock = document.getElementById('reboot_message');\n                rebootBlock.style.display = \"none\";\n                var loginBlock = document.getElementById('login_message');\n                loginBlock.style.display = \"block\";\n              } else {\n                var rebootBlock = document.getElementById('reboot_message');\n                rebootBlock.style.display = \"block\";\n                var loginBlock = document.getElementById('login_message');\n                loginBlock.style.display = \"none\";\n                count++;\n                setTimeout(checkServerStatus, 10000);\n              }\n            }\n          };\n          xhr.onerror = function (e) {\n            count++;\n            setTimeout(checkServerStatus, 10000);\n          };\n          xhr.send(null);\n        }else{\n          var rebootBlock = document.getElementById('reboot_message');\n          rebootBlock.style.display = \"none\";\n          var loginBlock = document.getElementById('login_message');\n          loginBlock.style.display = \"block\";\n        }\n      }\n      function validateForm() {\n        if(loginForm.j_username.value.length==0 || loginForm.j_username.value==\"\")\n        {\n          showErrorMessage(\"Invalid Username.\");\n          document.getElementById(\"j_username\").className=\"login-input-error\";\n          return false;\n        } else if(loginForm.j_password.value.length == 0 || loginForm.j_password.value==\"\")\n        {\n          showErrorMessage(\"Invalid Password.\")\n          document.getElementById(\"j_password\").className=\"login-input-error\";\n          return false;\n        } else {\n          hideErrorMessage();\n          return true;\n        }\n      }\n\n      function showErrorMessage(msg) {\n        document.getElementById(\"errorMessageBox\").innerHTML=msg;\n      };\n\n      function hideErrorMessage() {\n        document.getElementById(\"errorMessageBox\").innerHTML=' ';\n        document.getElementById(\"j_username\").className=\"login-input-value\";\n        document.getElementById(\"j_password\").className=\"login-input-value\";\n      }\n    \n        </script>\n    </head>\n    <body onload=\"init()\">\n        <div name=\"Login\" class=\"loginContainer\">\n            <div class=\"loginInnerContainer\">\n                <div class=\"productCategory\">Cisco SD-WAN</div>\n                <form class=\"loginFormStyle\" name=\"loginForm\" id=\"loginForm\" method=\"POST\" action=\"j_security_check\" onsubmit=\"return validateForm()\" autocomplete=\"off\">\n                    <div name=\"logoMainContainer\"  class=\"logoMainContainer\"></div>\n                    <div class=\"brand-logo-text\">\n                        <span>Cisco vManage</span>\n                    </div>\n                    <p id=\"errorMessageBox\" name=\"errorMessageBox\" class='errorMessageBox '></p>\n                    <div id=\"reboot_message\" class=\"reboot-message-block\">\n                        <div class=\"reboot-message\">Server is initializing. Please wait.</div>\n                        <i class=\"fa fa-circle-o-notch fa-spin fa-3x fa-fw\"></i>\n                    </div>\n                    <div id=\"login_message\" style=\"display: none;\">\n                        <div class='onyx-groupbox login-wrap' name=\"inputFields\">\n                            <div class=\"onyx-input-decorator login-input\">\n                                <input type=\"text\" class=\"login-input-value\"  size=\"18\"\n                     id=\"j_username\" name=\"j_username\" maxlength=\"32\" placeholder=\"Username\" value=\"\" onfocus=\"hideErrorMessage()\" autofocus />\n                            </div>\n                            <div class=\"onyx-input-decorator login-input\">\n                                <input type=\"password\" class=\"login-input-value\"  size=\"18\"\n                     id=\"j_password\" name=\"j_password\" placeholder=\"Password\"  value=\"\" onfocus=\"hideErrorMessage()\" />\n                            </div>\n                        </div>\n                        <div class='onyx-sample-tools login-wrap'>\n                            <input type=\"submit\"  name=\"submit\"  value=\"Log In\" class=\"login-button\"  />\n                        </div>\n                    </div>\n                </form>\n            </div>\n        </div>\n    </body>\n</html>"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Statistics API",
+			"item": [
+				{
+					"name": "Show Interface",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/statistics/interface",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"statistics",
+								"interface"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show App DPI Applications",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/dpi/applications?deviceId=172.1.20.2",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"dpi",
+								"applications"
+							],
+							"query": [
+								{
+									"key": "deviceId",
+									"value": "172.1.20.2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Troubleshooting",
+			"item": [
+				{
+					"name": "Server Details",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/client/server",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"client",
+								"server"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Roles",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/client/user/roles",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"client",
+								"user",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Connections Summary",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/network/connectionsummary",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"network",
+								"connectionsummary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Control Status",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/control/count",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"control",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transport Health",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/statistics/approute/transport/summary/latency",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"statistics",
+								"approute",
+								"transport",
+								"summary",
+								"latency"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Site Health",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/bfd/sites/summary",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"bfd",
+								"sites",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top Applications (DPI)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/statistics/dpi/application/summary",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"statistics",
+								"dpi",
+								"application",
+								"summary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ping",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"deviceIp\":\"172.1.20.2\",\r\n  \"host\":\"1.2.9.11\",\r\n  \"vpn\":\"0\",\r\n  \"source\":\"ge0/2\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/device/tools/ping/deviceId=172.1.20.2",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"device",
+								"tools",
+								"ping",
+								"deviceId=172.1.20.2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

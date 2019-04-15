@@ -1,0 +1,117 @@
+system
+ host-name               branch-ztp
+ system-ip               172.1.5.1
+ site-id                 5
+ admin-tech-on-failure
+ route-consistency-check
+ organization-name       NterOne1
+ upgrade-confirm         5
+ vbond vbond.demo.local
+ aaa
+  auth-order local radius tacacs
+  usergroup basic
+   task system read write
+   task interface read write
+  !
+  usergroup netadmin
+  !
+  usergroup operator
+   task system read
+   task interface read
+   task policy read
+   task routing read
+   task security read
+  !
+  usergroup tenantadmin
+  !
+  user admin
+   password $6$lV1XHpFjQrUBVnS1$5zj18TA8WR5oxNGGoScmpUtrL81xFh61qvytKxdkQfrO9n.72K/j2IiObyz4hLajklMqBe84DRHYQNyXexEta0
+  !
+ !
+ logging
+  disk
+   enable
+  !
+ !
+!
+bfd app-route poll-interval 60000
+!
+omp
+ no shutdown
+ graceful-restart
+ advertise ospf external
+ advertise connected
+ advertise static
+!
+security
+ ipsec
+  authentication-type ah-sha1-hmac sha1-hmac
+ !
+!
+vpn 0
+ dns 1.4.28.89
+ interface ge0/0
+  ip address 9.9.9.169/24
+  tunnel-interface
+   encapsulation ipsec
+   color silver
+   no allow-service bgp
+   allow-service dhcp
+   allow-service dns
+   allow-service icmp
+   no allow-service sshd
+   no allow-service netconf
+   no allow-service ntp
+   no allow-service ospf
+   no allow-service stun
+  !
+  no shutdown
+ !
+ interface ge0/1
+  ip address 1.1.7.169/24
+  tunnel-interface
+   encapsulation ipsec
+   color gold
+   no allow-service bgp
+   allow-service dhcp
+   allow-service dns
+   allow-service icmp
+   no allow-service sshd
+   no allow-service netconf
+   no allow-service ntp
+   no allow-service ospf
+   no allow-service stun
+  !
+  no shutdown
+ !
+ ip route 0.0.0.0/0 9.9.9.23
+ ip route 0.0.0.0/0 1.1.7.22
+!
+vpn 1
+ router
+  ospf
+   router-id 172.1.5.1
+   timers spf 200 1000 10000
+   redistribute static
+   redistribute omp
+   area 0
+    interface ge0/2
+    exit
+   exit
+  !
+ !
+ interface ge0/2
+  ip address 192.168.5.169/24
+  no shutdown
+ !
+!
+vpn 512
+ interface eth0
+  ip address 10.82.85.115/20
+  no shutdown
+ !
+!
+policy
+ app-visibility
+ flow-visibility
+!
