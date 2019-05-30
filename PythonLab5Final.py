@@ -4,7 +4,7 @@ import configparser
 
 
 
-def initalize_connection(ipaddress,username,password):
+def initialize_connection(ipaddress,username,password):
 
     """
     This function will initialize a connection to thevManage
@@ -53,6 +53,7 @@ print ("Viptela Configuration:")
 print ("vManage Server Address: "+serveraddress)
 print ("vManage Username: "+username)
 
-session=initalize_connection(serveraddress,username,password)
+session=initi
+alize_connection(serveraddress,username,password)
 if session != False:
     print ("Successful you will issue API commands here in later labs")
