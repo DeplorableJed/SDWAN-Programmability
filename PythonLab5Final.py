@@ -53,7 +53,6 @@ print ("Viptela Configuration:")
 print ("vManage Server Address: "+serveraddress)
 print ("vManage Username: "+username)
 
-session=initi
-alize_connection(serveraddress,username,password)
+session=initialize_connection(serveraddress,username,password)
 if session != False:
     print ("Successful you will issue API commands here in later labs")
