@@ -1,4 +1,3 @@
-        #print(json_string)
         for stats in json_string['data']:
              # We only want to print the ipv4 interfaces
             if stats['af-type']!='ipv6':
