@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""This Python Script will post a message to a webex Teams space when a policy is activated or deactivated
+"""This Python Script will post a message to a webex Teams space when a policy is activated or deactivated and open a ticket in Service Now
 """
 
 import ciscosparkapi
@@ -89,23 +89,23 @@ def policy_cycle(sdwan_host,session):
         data = response.content
         print (data)
         t = datetime.datetime.now()
-        print ("Policy Activated 20 sec @ %s "%t)
+        print ("Policy Activated 10 sec @ %s "%t)
         message = spark.messages.create(env_user.SPARK_ROOM_ID,
-            text='Policy Activated 20 sec')
-        print(message)
+            text='Look No Hands')
+        #print(message)
         print('\n\n')
-        time.sleep(20)
+        time.sleep(10)
 
         response = session.request("GET",deactivate_policy_url,verify=False,timeout=10)
         data = response.content
         print (data)
         t = datetime.datetime.now()
-        print ("Policy Deactivated 20 sec @ %s "%t)
+        print ("Policy Deactivated 10 sec @ %s "%t)
         message = spark.messages.create(env_user.SPARK_ROOM_ID,
-            text='Policy Deactivated 20 seconds')
-        print(message)
+            text='Look No Hands')
+        #print(message)
         print('\n\n')
-        time.sleep(20)
+        time.sleep(10)
 
 def get_user_sys_id(username):
 
@@ -139,8 +139,7 @@ def create_incident(description, comment, snow_user, severity):
 session=initalize_connection(sdwan_host,sdwan_user,sdwan_pass)
 if session != False:
     print ("Connection to vManage successful")
-    message = spark.messages.create(env_user.SPARK_ROOM_ID,
-        text='Look No Hands!')
+    message = spark.messages.create(env_user.SPARK_ROOM_ID,text='Python has connected to vManage')
     print(message)
     print('\n\n')
     policy_cycle(sdwan_host,session)
