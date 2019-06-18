@@ -138,7 +138,13 @@ def get_tunnel_statistic(serveraddress,session,systemip):
             rx=rx+int(stats['rx_octets'])
             tx=tx+int(stats['tx_octets'])
             #print(json_string)
-            print('{0:10}->{1:12}   {2:15} {3:10d} {4:10d}   {5:10d}   {6:10d}'.format(stats['vdevice-host-name'],inventory[stats['system-ip']],stats['local-color'],int(stats['rx_pkts']),int(stats['tx_pkts']),int(stats['rx_octets'])*8,int(stats['tx_octets'])*8))
+            print('{0:10}->{1:12}   {2:15} {3:10d} {4:10d}   {5:10d}   {6:10d}'.format(stats['vdevice-host-name'],
+                                                                                       stats['system-ip'],
+                                                                                       stats['local-color'],
+                                                                                       int(stats['rx_pkts']),
+                                                                                       int(stats['tx_pkts']),
+                                                                                       int(stats['rx_octets'])*8,
+                                                                                       int(stats['tx_octets'])*8))
 
         print('                                                                    ---------    ---------')
         print('                                               Totals:             {0:10d}   {1:10d}'.format(rx*8,tx*8))
