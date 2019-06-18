@@ -59,7 +59,7 @@ def get_inventory(serveraddress,session):
         #system_ip=item['system-ip']
         #print('{0:15}  {1:20}  {2}     {3:36}  '.format("System IP", "Hostname", "Version","UUID"))
         #print('{0:15}  {1:20}  {2}     {3:36}  '.format("---------", "--------", "-------","------------------------------------"))
-        #print ('{0:15}  {1:20}  {2}      {3:36}  '.format(item['system-ip'],item['host-name'],item['version'],item['uuid']))
+        #print('{0:15}  {1:20}  {2}      {3:36}  '.format(item['system-ip'],item['host-name'],item['version'],item['uuid']))
 
 def get_statistic(serveraddress,session):
     print("---------------------------------------------------------------------")
@@ -74,7 +74,7 @@ def get_statistic(serveraddress,session):
         system_ip=item['system-ip']
         print('{0:15}  {1:20}  {2}     {3:36}  '.format("System IP", "Hostname", "Version","UUID"))
         print('{0:15}  {1:20}  {2}     {3:36}  '.format("---------", "--------", "-------","------------------------------------"))
-        print ('{0:15}  {1:20}  {2}      {3:36}  '.format(item['system-ip'],item['host-name'],item['version'],item['uuid']))
+        print('{0:15}  {1:20}  {2}      {3:36}  '.format(item['system-ip'],item['host-name'],item['version'],item['uuid']))
 
         print ("Retrieving Statistics for "+system_ip)
         url = "https://"+serveraddress+"/dataservice/device/interface/stats?deviceId="+system_ip
