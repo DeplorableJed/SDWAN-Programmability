@@ -169,5 +169,4 @@ if session != False:
     print ("Successful you will issue API commands here in later labs")
     get_inventory(serveraddress,session)
     get_statistic(serveraddress,session)
-    inventory=get_inventory(serveraddress,session)
     get_tunnel_statistic(serveraddress,session,systemip)
