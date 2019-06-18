@@ -41,7 +41,7 @@ vManage = {
     "password": "admin"
 }
 serviceNow = {
-    "url": "https://dev81865.service-now.com/",
+    "url": "https://deVXXXX.service-now.com/",
     "username": "admin",
     "password": "C1sc0123"
 }
