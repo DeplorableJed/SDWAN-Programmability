@@ -124,7 +124,7 @@ def create_incident(description, comment, snow_user, severity):
 
     # This function will create a new incident with the {description}, {comments}, severity for the {user}
 
-    caller_sys_id = 'get_user_sys_id(snow_user)'
+    caller_sys_id = get_user_sys_id(snow_user)
     url = snow_url + '/table/incident'
     payload = {'short_description': description,
                'comments': (comment + ', \nIncident created using APIs by caller ' + snow_user),
