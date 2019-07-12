@@ -75,14 +75,14 @@ def policy_cycle(sdwan_host,session):
         i+=1
         response = session.request("GET",activate_policy_url,verify=False,timeout=10)
         data = response.content
-        print (data)
+        #print (data)
         t = datetime.datetime.now()
         print ("Policy Activated for 5 seconds @ %s "%t)
         time.sleep(5)
 
         response = session.request("GET",deactivate_policy_url,verify=False,timeout=10)
         data = response.content
-        print (data)
+        #print (data)
         t = datetime.datetime.now()
         print ("Policy Deactivated for 5 seconds @ %s "%t)
         time.sleep(5)
