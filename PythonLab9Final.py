@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""This Python Script will post a message to a webex Teams space when a policy is activated or deactivated
+"""This Python Script will activate a script and then 5 seconds deactivate a script then post to webex
 """
 
 import ciscosparkapi
@@ -7,6 +7,7 @@ import requests
 import urllib3
 import datetime
 import time
+import os
 # Disable Certificate warning
 try:
     requests.packages.urllib3.disable_warnings()
@@ -23,8 +24,8 @@ project_root = os.path.abspath(os.path.join(here, '../..'))
 
 # Extend the system path to include the project root and import the env files
 sys.path.insert(0, project_root)
-import env_lab      # noqa
-import env_user     # noqa
+import env_lab
+import env_user
 
 
 # Create a Cisco Spark object
@@ -69,66 +70,37 @@ def initalize_connection(ipaddress,username,password):
 
     return sess
 
-def get_inventory(sdwan_host,session):
-
-    print("Retrieving the inventory data from the vManage at "+sdwan_host+"\n")
-
-    url = "https://" + sdwan_host + "/dataservice/device"
-    response = session.request("GET",url,verify=False,timeout=10)
-    json_string = response.json()
-    #print(json_string)
-
-    # Initialize the inventory data dictionary
-    inv={}
-
-    for item in json_string['data']:
-       print(item)
-       print("=======================")
-    for item in json_string['data']:
-       print (item['host-name']+"   "+item['board-serial']+"   "+item['version']+"   "+item['controlConnections']+"   "+item['state']+"   "+item['personality']+"   "+item['system-ip'])
-       inv[item['system-ip']]=item['host-name']
-    return(inv)
-
-    for item in json_string['data']:
-        system_ip=item['system-ip']
-        print ('{0:15}  {1:20}  {2}     {3:36}  '.format("System IP", "Hostname", "Version","UUID"))
-        print ('{0:15}  {1:20}  {2}     {3:36}  '.format("---------", "--------", "-------","------------------------------------"))
-        print ('{0:15}  {1:20}  {2}      {3:36}  '.format(item['system-ip'],item['host-name'],item['version'],item['uuid']))
-
-
 def policy_cycle(sdwan_host,session):
-    policy_id = "c19aa591-3993-4f67-a76c-5194b368345f"
-    activate_policy_url = "https://%s/dataservice/template/policy/vsmart/activate/c19aa591-3993-4f67-a76c-5194b368345f"%(sdwan_host)
-    deactivate_policy_url = "https://%s/dataservice/template/policy/vsmart/deactivate/c19aa591-3993-4f67-a76c-5194b368345f"%(sdwan_host)
+    policy_id = "PUT_POLICY_NUMBER_HERE"
+    activate_policy_url = "https://%s/dataservice/template/policy/vsmart/activate/PUT_POLICY_NUMBER_HERE"%(sdwan_host)
+    deactivate_policy_url = "https://%s/dataservice/template/policy/vsmart/deactivate/PUT_POLICY_NUMBER_HERE"%(sdwan_host)
     payload = "{\n }"
     headers = {'Content-Type':'application/json'}
     i=0
-    while i<3:
+    while i<2:
         i+=1
         response = session.request("GET",activate_policy_url,verify=False,timeout=10)
         data = response.content
         print (data)
         t = datetime.datetime.now()
-        print ("Policy Activated @ %s "%t)
-        message = spark.messages.create(env_user.SPARK_ROOM_ID,text='Look No Hands')
+        print ("Policy Activated for 5 seconds @ %s "%t)
+        message = spark.messages.create(env_user.SPARK_ROOM_ID,text='Look No Hands!')
         print(message)
         print('\n\n')
-        time.sleep(1)
+        time.sleep(5)
 
         response = session.request("GET",deactivate_policy_url,verify=False,timeout=10)
         data = response.content
         print (data)
         t = datetime.datetime.now()
-        print ("Policy Deactivated @ %s "%t)
-        message = spark.messages.create(env_user.SPARK_ROOM_ID,text='Look I Have HANDS!')
+        print ("Policy Deactivated for 5 seconds @ %s "%t)
+        message = spark.messages.create(env_user.SPARK_ROOM_ID,text='Look I Have Hands!')
         print(message)
         print('\n\n')
-        time.sleep(1)
+        time.sleep(5)
 
 session=initalize_connection(sdwan_host,sdwan_user,sdwan_pass)
 if session != False:
     print ("Connection to vManage successful")
-    message = spark.messages.create(env_user.SPARK_ROOM_ID,text='Python was here')
-    print(message)
-    print('\n\n')
     policy_cycle(sdwan_host,session)
+
