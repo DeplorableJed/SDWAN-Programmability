@@ -23,8 +23,8 @@ project_root = os.path.abspath(os.path.join(here, '../..'))
 
 # Extend the system path to include the project root and import the env files
 sys.path.insert(0, project_root)
-import env_lab      # noqa
-import env_user     # noqa
+import env_lab      
+     
 
 # Details for SDWAN Center Platform API calls from env_lab file
 sdwan_host = env_lab.vManage['host']
