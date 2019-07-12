@@ -2,11 +2,11 @@
 """This Python Script will activate a script and then 5 seconds deactivate a script
 """
 
-
 import requests
 import urllib3
 import datetime
 import time
+import os
 # Disable Certificate warning
 try:
     requests.packages.urllib3.disable_warnings()
@@ -25,11 +25,6 @@ project_root = os.path.abspath(os.path.join(here, '../..'))
 sys.path.insert(0, project_root)
 import env_lab      # noqa
 import env_user     # noqa
-
-
-# Create a Cisco Spark object
-spark = ciscosparkapi.CiscoSparkAPI(access_token=env_user.SPARK_ACCESS_TOKEN)
-
 
 # Details for SDWAN Center Platform API calls from env_lab file
 sdwan_host = env_lab.vManage['host']
