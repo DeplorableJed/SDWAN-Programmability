@@ -7,6 +7,8 @@ import requests
 import urllib3
 import datetime
 import time
+import os
+import json
 # Disable Certificate warning
 try:
     requests.packages.urllib3.disable_warnings()
@@ -32,7 +34,7 @@ spark = ciscosparkapi.CiscoSparkAPI(access_token=env_user.SPARK_ACCESS_TOKEN)
 
 
 # Details for SDWAN Center Platform API calls from env_lab file
-sdwan_host = env_lab.vManage['host']
+sdwan_url = env_lab.vManage['host']
 sdwan_user = env_lab.vManage['username']
 sdwan_pass = env_lab.vManage['password']
 sdwan_headers = {'content-type': 'application/json'}
@@ -137,7 +139,7 @@ def get_user_sys_id(snow_user):
 
     # find the ServiceNow user_id for the specified user
 
-    url = snow_url + '/table/sys_user?sysparm_limit=1&name=' + snow_user
+    url = snow_url + 'table/sys_user?sysparm_limit=1'
     headers = {'Content-Type': 'application/json', 'Accept': 'application/json'}
     response = requests.get(url, auth=(snow_user, snow_pass), headers=headers)
     user_json = response.json()
@@ -149,8 +151,8 @@ def create_incident(description, comment, snow_user, severity):
     # This function will create a new incident with the {description}, {comments}, severity for the {user}
 
     caller_sys_id = get_user_sys_id(snow_user)
-    print caller_sys_id
-    url = snow_urlL + '/table/incident'
+    print (caller_sys_id)
+    url = snow_url + '/table/incident'
     payload = {'short_description': description,
                'comments': (comment + ', \nIncident created using APIs by caller ' + snow_user),
                'caller_id': caller_sys_id,
