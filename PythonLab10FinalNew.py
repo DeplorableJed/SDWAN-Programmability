@@ -34,13 +34,13 @@ spark = ciscosparkapi.CiscoSparkAPI(access_token=env_user.SPARK_ACCESS_TOKEN)
 
 
 # Details for SDWAN Center Platform API calls from env_lab file
-sdwan_url = env_lab.vManage['host']
+sdwan_host = env_lab.vManage['host']
 sdwan_user = env_lab.vManage['username']
 sdwan_pass = env_lab.vManage['password']
 sdwan_headers = {'content-type': 'application/json'}
 
 # Details for ServiceNow API Access
-snow_host = env_lab.serviceNow['url']
+snow_url = env_lab.serviceNow['url']
 snow_user = env_lab.serviceNow['username']
 snow_pass = env_lab.serviceNow['password']
 
