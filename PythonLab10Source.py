@@ -15,7 +15,7 @@ def create_incident(description, comment, snow_user, severity):
 
     caller_sys_id = get_user_sys_id(snow_user)
     print (caller_sys_id)
-    url = snow_url + '/table/incident'
+    url = snow_url + 'table/incident'
     payload = {'short_description': description,
                'comments': (comment + ', \nIncident created using APIs by caller ' + snow_user),
                'caller_id': caller_sys_id,
