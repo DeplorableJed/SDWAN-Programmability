@@ -31,21 +31,21 @@ class rest_api_lib:
         payload = "{\n }"
         headers = {'Content-Type':'application/json'}
         i=0
-        while i<5:
+        while i<2:
             i+=1
             response = self.session[self.vmanage_ip].post(url=activate_policy_url, data=payload, headers=headers, verify=False)
             data = response.content
             print (data)
             t = datetime.datetime.now()
             print ("Policy Activated @ %s "%t)
-            time.sleep(100)
+            time.sleep(5)
  
             response = self.session[self.vmanage_ip].post(url=deactivate_policy_url, data=payload, headers=headers, verify=False)
             data = response.content
             print (data)
             t = datetime.datetime.now()
             print ("Policy Deactivated @ %s "%t)
-            time.sleep(100)
+            time.sleep(5)
  
  
 def main():
