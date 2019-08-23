@@ -154,7 +154,7 @@ def create_incident(description, comment, snow_user, severity):
     print (caller_sys_id)
     url = snow_url + '/table/incident'
     payload = {'short_description': description,
-               'comments': (comment + ', \nIncident created using APIs by caller ' + snow_user),
+               'comments': (comment + ', \nIncident created using APIs by caller by PUT_YOUR_NAME_HERE'),
                'caller_id': caller_sys_id,
                'urgency': severity
                }
@@ -173,4 +173,4 @@ if session != False:
     policy_cycle(sdwan_host,session)
     comments = 'There has been a policy change on : ' + sdwan_host
     create_incident('Policy Change', comments, snow_user,3)
-    print('Incident opened on Service-Now') 
+    print('Incident opened on Service-Now')
