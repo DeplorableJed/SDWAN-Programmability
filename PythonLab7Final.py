@@ -8,7 +8,7 @@ def initalize_connection(ipaddress,username,password):
 
     """
     This function will initialize a connection to thevManage
-    :param ipaddress: This is the IP Address and Port number of vManage 
+    :param ipaddress: This is the IP Address and Port number of vManage
     :param username:  This is the username for vManage (admin in our lab)
     :param password:  This is a password for vManage (admin in our lab)
     These will be set in a file called package_config.ini
@@ -46,13 +46,13 @@ def get_inventory(serveraddress,session):
 
     # Initialize the inventory data dictionary
     inv={}
-    
+
     for item in json_string['data']:
        print(item)
-       print("=======================") 
+       print("=======================")
     for item in json_string['data']:
        print (item['host-name']+"   "+item['board-serial']+"   "+item['version']+"   "+item['controlConnections']+"   "+item['state']+"   "+item['personality']+"   "+item['system-ip'])
-       inv[item['system-ip']]=item['host-name']	
+       inv[item['system-ip']]=item['host-name']
     return(inv)
 
     #for item in json_string['data']:
@@ -83,16 +83,19 @@ def get_statistic(serveraddress,session):
         rx=0
         tx=0
         #print(json_string)
-        for stats in json_string['data']:
-             # We only want to print the ipv4 interfaces
-            if stats['af-type']!='ipv6':
-                 print('      {0:9}     {1:10}   {2:10d}      {3:10d}'.format(stats['ifname'],stats['vpn-id'],int(stats['tx-packets']),int(stats['rx-packets'])))
-            rx=rx+int(stats['rx-packets'])
-            tx=tx+int(stats['tx-packets'])
-        print('                                 {0}      {1}'.format("----------","----------"))
-        print('      {0:9}     {1:10}   {2:10d}      {3:10d}'.format(" ","Total",tx,rx))
+        try:
+            for stats in json_string['data']:
+                # We only want to print the ipv4 interfaces
+                if stats['af-type']!='ipv6':
+                    print('      {0:9}     {1:10}   {2:10d}      {3:10d}'.format(stats['ifname'],stats['vpn-id'],int(stats['tx-packets']),int(stats['rx-packets'])))
+                rx=rx+int(stats['rx-packets'])
+                tx=tx+int(stats['tx-packets'])
+            print('                                 {0}      {1}'.format("----------","----------"))
+            print('      {0:9}     {1:10}   {2:10d}      {3:10d}'.format(" ","Total",tx,rx))
+        except KeyError:
+            print('Data not found for that System IP')
     print ("\n")
-        
+
 def get_tunnel_statistic(serveraddress,session,systemip):
 
     """
@@ -165,7 +168,7 @@ try:
 except configparser.Error:
     print ("Cannot Parse package_config.ini")
     exit(-1)
-    
+
 print ("Viptela Configuration:")
 print ("vManage Server Address: "+serveraddress)
 print ("vManage Username: "+username)
